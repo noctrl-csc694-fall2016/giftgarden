@@ -3,30 +3,35 @@
   <div class="col-sm-8 col-xs-offset-2">
     <div id="flash"></div>
     <div class="page-header">
-      <h2>One Donor Report <small>
-      The report lists the contact information and Gifts from the selected Donor</small><%= image_tag("icons/dragonfly1_square.png", height: "48",  alt: "Users", class: "pull-right hidden-xs") %></h2>
+      <h2>One Donor Report
+        <%= image_tag("icons/dragonfly1_square.png", height: "48",  alt: "Users", class: "pull-right hidden-xs") %>
+        <small> >&nbsp; &mdash; generate a PDF report for one selected Donor. <br>
+          Output file is: <span class="report-file-name">One Donor Report - &lt;DonorName&gt;-<%= Time.now.to_date.to_s %>.pdf</span>
+        </small>
+      </h2>
   	</div>
   </div>
 </div>
 
-<!-- Form Content -->
+<!-- Report form -->
 <%= form_tag '/report-one-donor-pdf', multipart:true do %>
 
-  <section class='report-container'>
-    <div class='report-left-half'>
-      <span class='report-tab'>Donor:</span><br />
-      <%= select_tag "donor", options_from_collection_for_select(@donors, "id", "full_name_id") %>
-    </div>
-  </section>
-  <br />
-  
-  <div class="report-submit">
+<div class="row report-form-row">
+  <div class="col-xs-8 col-xs-offset-2">
+    Donor: <br>
+    <%= select_tag "donor", options_from_collection_for_select(@donors, "id", "full_name_id") %>
+  </div>
+</div>
+
+<div class="row report-buttons-row">
+  <div class="col-xs-8 col-xs-offset-2">
     <%= submit_tag "Generate Report", class: "btn btn-success" %>
     &nbsp;
     <%=link_to "Cancel", reports_url, class: "btn btn-danger" %>
   </div>
+</div>
+
 <% end %>
-<!-- end Form Content -->
 
 <script>
   //allows Report button to be used repeatedly, and resets the form
@@ -52,4 +57,3 @@
     }
   }
 </script>
-

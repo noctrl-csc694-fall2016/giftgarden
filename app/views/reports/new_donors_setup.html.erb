@@ -1,17 +1,54 @@
-<% provide(:title, "Donors Report") %>
-<div class="row">
-  <div class="col-sm-8 col-xs-offset-2">
+<% provide(:title, "New Donors Report") %>
+<div class="row report-title-row">
+  <div class="col-xs-offset-1 col-xs-10">
     <div id="flash"></div>
     <div class="page-header">
-     <h2>New Donors Report</h2>
-     <p><b>This report lists new Donors.</b></p>
-     <p><b>A Donor is considered "new" as of he date of his/her first Gift.</b><%= image_tag("icons/bee1_square.png", height: "48",  alt: "Users", class: "pull-right hidden-xs") %></p>
+      <h2>New Donors Report
+        <%= image_tag("icons/bee1_square.png", height: "64",  alt: "Users", class: "pull-right hidden-xs") %>
+        <small>&nbsp; &mdash; generate a PDF report of new Donors that meet your criteria. 
+          A Donor is considered "new" as of the date of his/her first Gift.
+          <br>
+          Output file is: <span class="report-file-name">New Donors Report <%= Time.now.to_date.to_s %>.pdf</span>
+        </small> 
+      </h2>
     </div>
   </div>
 </div>
 
 <!-- Content -->
 <%= form_tag '/report-new-donors-pdf', multipart:true do %>
+
+<div class="row report-form-row">
+  <div class="col-xs-8 col-xs-offset-2">
+    Timeframe: <br>
+    <%= select_tag 'times', options_for_select(Donor::TIMES) %>
+  </div>
+</div>
+
+<div class="row report-form-row">
+  <div class="col-xs-8 col-xs-offset-2">
+    Sort by: <br>
+    <%= select_tag 'sorts', options_for_select(Donor::SORTS) %>
+  </div>
+</div>
+
+<div class="row report-form-row">
+  <div class="col-xs-8 col-xs-offset-2">
+    <%= check_box_tag 'full_contact', 'yes', false %>
+    <%= label_tag(:full_contact, "Full Contact") %>
+  </div>
+</div>
+
+<div class="row report-buttons-row">
+  <div class="col-xs-8 col-xs-offset-2">
+    <%= submit_tag "Generate Report", class: "btn btn-success" %>
+    &nbsp;
+    <%=link_to "Cancel", reports_url, class: "btn btn-danger" %>
+  </div>
+</div>
+
+
+<!--
   <section class='row'>
     <div class="col-sm-2 col-xs-offset-2">
       <span class='report-tab'>Timeframe:</span><br />
@@ -35,6 +72,8 @@
       <%=link_to "Cancel", reports_url, class: "btn btn-danger" %>
     </div>
   </div>
+-->
+
 <% end %>
 
 <script>

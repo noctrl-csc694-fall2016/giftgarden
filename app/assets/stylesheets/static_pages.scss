@@ -2,6 +2,62 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+/* About Page */
 .deploy-div {
   font-size: medium;
 }
+
+.about-section {
+  padding-top: 20px;
+  font-size: medium;
+}
+
+.staff-wrapper{
+  font-size: 1.25em;
+  padding-bottom: 15px;
+  padding-top: 15px;
+//  border-bottom: 1px solid $link-dark-purple;
+  
+  h4{
+    padding: 0px;
+    margin: 5px;
+  }
+  
+  .row{
+    margin-left: 0px;
+  }
+}
+
+.staff-image {
+  padding-right: 40px;
+}
+
+.about-special-people {
+  font-weight: bold;
+  font-size: 1.2em;
+  color: purple;
+}
+
+.about-artwork {
+  border: 1px solid white;
+  height: 150px;
+}
+.about-artwork:hover {
+  border: 1px solid lightgray;
+}
+
+.row-spacing-gallery{
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.help-section {
+  padding-top: 20px;
+  font-size: medium;
+}
+
+.help-guide {
+  padding-left: 20px;
+  font-size: 1.4em;
+}
+
