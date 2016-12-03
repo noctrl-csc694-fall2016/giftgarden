@@ -203,7 +203,18 @@ h1{
   text-align:center;
 }
 
-/** Activities */
+
+/* Home */
+.home-artwork { max-height: 128px; }
+@media only screen and (max-width : 768px) {
+	.home-artwork { max-height: 96px;	}
+}
+@media only screen and (max-width : 480px) {
+	.home-artwork { max-height: 64px;	}
+}
+
+
+/* Activities */
 .activity-icon {
   font-size: 20px;
   color: rgb(0,128,0);
@@ -215,6 +226,7 @@ h1{
 /* Reports */
 .report-row {
   margin-top: 20px;
+  padding-left: 20px;
 }
 .report-text {
   color: $text-gray;
@@ -233,13 +245,24 @@ h1{
   padding-right: 12px;
   color: $text-gray;
 }
+.report-artwork { max-height: 96px; }
+@media only screen and (max-width : 768px) {
+//	.report-artwork { max-height: 96px;	}
+}
+@media only screen and (max-width : 480px) {
+	.report-artwork { max-height: 64px;	}
+}
+.report-section {
+  padding-top: 40px;
+}
+
 
 /* Import-export css - just use report css when possible */
 .import-header{
   min-height: 50px;
 }
-.import-sub-header, .export-sub-header{
-  border-bottom: 1px solid $accent-blue;
+.import-sub-header, .export-sub-header {
+//  border-bottom: 1px solid $accent-blue;
 }
 .export-header {
   margin-top: 48px;
@@ -334,6 +357,27 @@ a.btn.btn-danger{
   font-weight: bold;
 }
 
+/* Bill: some new report css */
+.report-title-row {
+  padding-bottom: 20px;
+}
+
+.report-file-name {
+  font-weight: bold;
+  color: forestgreen;
+}
+
+.report-form-row {
+  font-size: 18px !important;
+  padding-bottom: 20px;
+}
+
+.report-buttons-row {
+  font-size: 18px !important;
+  padding-top: 20px;
+}
+
+
 /* Footer CSS */
 .footer {
   bottom: 0;
@@ -420,42 +464,16 @@ a.btn.btn-danger{
   display: inline;
 }
 .reports-spacing{
-  margin-top: 20px;
+  padding-top: 40px;
 }
 .report-title{
   padding-left: 10px;
 }
 
-/* About Page */
-.row-spacing-gallery{
-  padding-top: 15px;
-  padding-bottom: 15px;
-}
-.staff-wrapper{
-  font-size: 1.25em;
-  padding-bottom: 15px;
-  padding-top: 15px;
-  border-bottom: 1px solid $link-dark-purple;
-  
-  h4{
-    padding: 0px;
-    margin: 5px;
-  }
-  
-  .row{
-    margin-left: 0px;
-  }
-  
-}
 .picture-donna-text {
   margin-left: 10px;
 }
 
-/* Home */
-.jumbo-text{
-  font-size: 1.5em;
-  margin-left: 15px;
-}
 
 /* Error Handlers */
 div.alert {
@@ -466,4 +484,12 @@ div.alert {
 }
 .panel-group .panel{
   margin-bottom: 10px;
+}
+
+// Bill: This is a little scary, but it seems to work. 
+// Bootstrap jams a URL into links when printing which is often messy. 
+// This CSS overrides this behavior and produces cleaner pages when printed.
+// Source: http://drupal.stackexchange.com/questions/59900/how-to-get-rid-of-added-urls-when-printing-a-bootstrap-themed-page
+@media print {
+  a[href]:after { content: none; }
 }

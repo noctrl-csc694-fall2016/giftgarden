@@ -1,29 +1,32 @@
 <% provide(:title, "About") %>
-  <!-- Content Header -->
-  <div class="row">
-    <div class="col-sm-8 col-xs-offset-2">
-      <div class="page-header">
-        <h2>
-          About Gift Garden&nbsp;
-            <small>
-              <span class='deploy-div'>Version 1.0-Beta; Deployed on <%= GiftGarden::Application::DEPLOY %></span>
-            </small>
-        </h2>
-      </div>
-    </div>
-  </div>
-  <!-- Content -->
-  <div class="row col-xs-8 col-xs-offset-2">
-    <h3>An Introduction</h3>
+
+<!-- Content Header -->
+<div class="row">
+  <div class="col-xs-offset-1 col-xs-10">
+    <div class="page-header">
+      <h2>About Gift Garden
+        <small> &nbsp; &mdash; 
+          Version 1.0-beta; deployed on <%= GiftGarden::Application::DEPLOY %>
+        </small>
+      </h2>
+    </div>   <!-- page-header -->
+  </div>   <!-- col -->
+</div>   <!-- row -->
+
+<!-- Section: Intro -->
+<div class="row about-section">
+  <div class="col-xs-offset-1 col-xs-9">
     <p>
       Gift Garden is a gift management system for nonprofits. It allows an organization to effectively track and analyze the activities,
       donors, and gifts that are the core of any nonprofit. Gift Garden is a web application designed to be easy to learn and simple to use. 
+    </p>
+    <p>
       The system is built upon three important design choices:
     </p> 
     <ol>
-      <li>use a standard web user interface framework</li>
-      <li>build upon a very simple data model</li>
-      <li>place an emphasis on convention over configuration</li>
+      <li>Use a standard web user interface framework</li>
+      <li>Build upon a very simple data model</li>
+      <li>Place an emphasis on convention over configuration</li>
     </ol>
     <p>
       Gift Garden is the work of the students of the CSC 694 Capstone class, Fall 2016, at North Central College. 
@@ -37,132 +40,217 @@
       thanks...yow, bill
     </p>
   </div>
-  <div class="row col-xs-8 col-xs-offset-2">
+</div>   <!-- row -->
+
+<!-- Section: Design Team -->
+<div class="row about-section">
+  <div class="col-xs-offset-1 col-xs-10">
     <h3>The Design Team</h3>
-    <div class="row staff-wrapper col-xs-offset-1">
-      <div class="media">
-			  <div class="media-right media-middle" >
-				    <%= image_tag("team/jason.jpg", height: "128",  alt: "Staff Image", class: "hidden-xs media-object") %>
-				</div>
-				<div class="media-body" style="padding-left: 10px;">
-					<br />
-				  <h4>Jason K</h4> <br /> <span class="picture-donna-text">"Placing great emphasis on design and usability...along with a little bit of code."</span>
-				</div>
-			</div>   <!-- media -->
-    </div> <!-- row -->
-    
-    <div class="row staff-wrapper col-xs-offset-1">
-      <div class="media">
-			  <div class="media-right media-middle" >
-				    <%= image_tag("team/andyw.jpg", height: "128",  alt: "Staff Image", class: "hidden-xs media-object") %>
-				</div>
-				<div class="media-body" style="padding-left: 10px;">
-					<br />
-				  <h4>Andy W</h4> <br /> <span class="picture-donna-text">"Data models, pagination, parameters, and sorting: its been a pleasure surfing with CSC 694 and Gift Garden!"</span>
-				</div>
-			</div>   <!-- media -->
-    </div> <!-- row -->
-    
-    <div class="row staff-wrapper col-xs-offset-1">
-      <div class="media">
-			  <div class="media-right media-middle" >
-				    <%= image_tag("team/patm.png", height: "128",  alt: "Staff Image", class: "hidden-xs media-object") %>
-				</div>
-				<div class="media-body" style="padding-left: 10px;">
-					<br />
-				  <h4>Pat M</h4> <br /> <span class="picture-donna-text">"Gift Garden is a great tool and I'm proud to support it. I hope our users utilize it to its full potential."</span>
-				</div>
-			</div>   <!-- media -->
-    </div> <!-- row -->
-    
-    <div class="row staff-wrapper col-xs-offset-1">
-      <div class="media">
-			  <div class="media-right media-middle" >
-				    <%= image_tag("team/weih.jpg", height: "128",  alt: "Staff Image", class: "hidden-xs media-object") %>
-				</div>
-				<div class="media-body" style="padding-left: 10px;">
-					<br />
-				  <h4>Wei H</h4> <br /> <span class="picture-donna-text">"I enjoyed being in a team and building Gift Garden. I hope you will enjoy growing gifts and surfing in it."</span>
-				</div>
-			</div>   <!-- media -->
-    </div> <!-- row -->
-    
-    <div class="row staff-wrapper col-xs-offset-1">
-      <div class="media">
-			  <div class="media-right media-middle" >
-				    <%= image_tag("team/miked.png", height: "128",  alt: "Staff Image", class: "hidden-xs media-object") %>
-				</div>
-				<div class="media-body" style="padding-left: 10px;">
-					<br />
-				  <h4>Mike D</h4> <br /> <span class="picture-donna-text">"UX Team, New Gifts, and Reports. Has done technical work at McDonald's Corporation, Northwestern University and volunteers time teaching programming through various robotics programs at the library. He is very happy to be able to add his contributions to Gift Garden!"</span>
-				</div>
-			</div>   <!-- media -->
-    </div> <!-- row -->
-    
-    <div class="row staff-wrapper col-xs-offset-1">
-      <div class="media">
-			  <div class="media-right media-middle" >
-				    <%= image_tag("team/profbill.jpg", height: "128",  alt: "Staff Image", class: "hidden-xs media-object") %>
-				</div>
-				<div class="media-body" style="padding-left: 10px;">
-					<br />
-				  <h4>Prof Bill</h4> <br /> <span class="picture-donna-text">"I enjoyed my 10 long Tuesday nights with the CSC 694 team. Long live Gift Garden! thanks... yow, bill"</span>
-				</div>
-			</div>   <!-- media -->
-    </div> <!-- row -->
+    <p>
+      Gift Garden was created by the students of CSC 694 in the Fall of 2016.
+    </p>
   </div>
-  
-  <div class="row col-xs-8 col-xs-offset-2">
+</div>   <!-- row -->
+
+<div class="row staff-wrapper">
+  <div class="col-xs-offset-1 col-xs-10">
+    <div class="media">
+	    <div class="media-right media-middle" >
+		    <%= image_tag("team/jason.jpg", height: "128",  alt: "Staff Image", class: "hidden-xs media-object staff-image") %>
+		  </div>
+		  <div class="media-body">
+		    <h3>Jason K <br>
+		      <small>Placing great emphasis on design and usability...along with a little bit of code.</small>
+		    </h3>
+		  </div>
+	  </div>   <!-- media -->
+	  <hr>
+  </div>
+</div>   <!-- row -->
+
+<div class="row staff-wrapper">
+  <div class="col-xs-offset-1 col-xs-10">
+    <div class="media">
+		  <div class="media-right media-middle" >
+			    <%= image_tag("team/andyw.jpg", height: "128",  alt: "Staff Image", class: "hidden-xs media-object staff-image") %>
+			</div>
+			<div class="media-body">
+			  <h3>Andy W <br>
+			    <small>Data models, pagination, parameters, and sorting; it's been a pleasure surfing with CSC 694 and Gift Garden!</small>
+        </h3>
+			</div>
+		</div>   <!-- media -->
+		<hr>
+  </div>
+</div>   <!-- row -->
+
+<div class="row staff-wrapper">
+  <div class="col-xs-offset-1 col-xs-10">
+    <div class="media">
+		  <div class="media-right media-middle" >
+			    <%= image_tag("team/patm.png", height: "128",  alt: "Staff Image", class: "hidden-xs media-object staff-image") %>
+			</div>
+  		<div class="media-body">
+			  <h3>Pat M <br>
+			    <small>Gift Garden is a great tool, and I'm proud to support it. I hope our users utilize it to its full potential.</small>
+			  </h3>
+			</div>
+		</div>   <!-- media -->
+		<hr>
+  </div>
+</div> <!-- row -->
+
+<div class="row staff-wrapper">
+  <div class="col-xs-offset-1 col-xs-10">
+    <div class="media">
+		  <div class="media-right media-middle" >
+			    <%= image_tag("team/weih.jpg", height: "128",  alt: "Staff Image", class: "hidden-xs media-object staff-image") %>
+			</div>
+			<div class="media-body">
+			  <h3>Wei H <br>
+			    <small>I enjoyed being in a team and building Gift Garden. I hope you will enjoy growing gifts and surfing in it.</small>
+			  </h3>
+			</div>
+		</div>   <!-- media -->
+		<hr>
+  </div>
+</div> <!-- row -->
+    
+<div class="row staff-wrapper">
+  <div class="col-xs-offset-1 col-xs-10">
+    <div class="media">
+		  <div class="media-right media-middle" >
+			    <%= image_tag("team/miked.png", height: "128",  alt: "Staff Image", class: "hidden-xs media-object staff-image") %>
+			</div>
+			<div class="media-body">
+			  <h3>Mike D <br>
+			    <small>UX Team, New Gifts, and Reports. Has done technical work at McDonald's Corporation, Northwestern University and volunteers time teaching programming through various robotics programs at the library. He is very happy to be able to add his contributions to Gift Garden!</small>
+			  </h3>
+			</div>
+		</div>   <!-- media -->
+    <hr>
+	</div>
+</div> <!-- row -->
+
+<div class="row staff-wrapper">
+  <div class="col-xs-offset-1 col-xs-10">
+    <div class="media">
+		  <div class="media-right media-middle" >
+			    <%= image_tag("team/profbill.jpg", height: "128",  alt: "Staff Image", class: "hidden-xs media-object staff-image") %>
+			</div>
+			<div class="media-body">
+			  <h3>Prof Bill <br>
+			    <small>I enjoyed my 10 long Tuesday nights with the CSC 694 team. Long live Gift Garden! thanks... yow, bill</small>
+			  </h3>
+			</div>
+		</div>   <!-- media -->
+		<hr>
+  </div>
+</div> <!-- row -->
+
+
+<!-- Section: Thanks yous -->
+<div class="row about-section">
+  <div class="col-xs-offset-1 col-xs-9">
     <h3>Thank Yous</h3>
-    We sincerely thank our two nonprofit partners for their valuable input during the design of Gift Garden:
-    <br /><br />
+    <p>
+      We sincerely thank our two nonprofit partners for their valuable input during the design of Gift Garden:
+    </p>
     <ul>
-      <li>Sharing Connections in Downers Grove, and</li>
-      <li>Turning Pointe in Naperville... especially Carrie P, our MVP!</li>
+      <li><p>Sharing Connections in Downers Grove, and</p></li>
+      <li><p>Turning Pointe in Naperville... especially Carrie P, our MVP!</p></li>
     </ul>
-    Thank you all!
+    <p>
+      Thank you all, very much!
+    </p>
   </div>
-  <div class="row col-xs-8 col-xs-offset-2">
+</div>
+
+
+<!-- Section: Artwork -->
+<div class="row about-section">
+  <div class="col-xs-offset-1 col-xs-9">
     <h3>The Artwork</h3>
     <p>
-      The artwork you see in Gift Garden is the work of one talented young lady, <b>Teresa B</b>. She is an art student at North Central College. 
+      The artwork you see in Gift Garden is the work of one talented young lady, 
+      <span class="about-special-people">Teresa B</span>. 
+      She is an art student at North Central College. 
       Thank you, Teresa B! We truly appreciate your contribution in making Gift Garden so beautiful and special for our users.
     </p>
     <p>
-      We also thank <b>Janny G</b> of Menlo Park for her Photoshop edits of Teresa B's work. Thank you, Janny, our “Mistress of the Magic Wand”!
+      We also thank <span class="about-special-people">Janny G</span> of Menlo Park for her Photoshop edits of Teresa B's work. Thank you, Janny, our “Mistress of the Magic Wand”!
     </p>
     <p>
-      Here are some larger “prints” of Teresa B's work in The Garden. 
+      Click below to see some larger “prints” of Teresa B's beautiful Garden artwork. 
     </p>
-    <div class="row row-spacing-gallery">
-      <div class="col-sm-4"><%= link_to 'assets/art/butterfly1_original.png', target: '_blank' do %><%= image_tag("art/butterfly1.png", height: "150",  alt: "Butterfly 1") %><% end %></div>
-      <div class="col-sm-4"><%= link_to 'assets/art/butterfly2_original.png', target: '_blank' do %><%= image_tag("art/butterfly2.png", height: "150",  alt: "Butterfly 2") %><% end %></div>
-    </div>
-    <div class="row row-spacing-gallery">
-      <div class="col-sm-4"><%= link_to 'assets/art/flower1_original.png', target: '_blank' do %><%= image_tag("art/flower1.png", height: "150",  alt: "Flower 1") %><% end %></div>
-      <div class="col-sm-4"><%= link_to 'assets/art/flower2_original.png', target: '_blank' do %><%= image_tag("art/flower2.png", height: "150",  alt: "Flower 2") %><% end %></div>
-    </div>
-    <div class="row row-spacing-gallery">
-      <div class="col-sm-4"><%= link_to 'assets/art/logo1_original.png', target: '_blank' do %><%= image_tag("art/logo1.png", height: "150",  alt: "Logo 1") %><% end %></div>
-      <div class="col-sm-4"><%= link_to 'assets/art/logo2_original.png', target: '_blank' do %><%= image_tag("art/logo2.png", height: "150",  alt: "Logo 2") %><% end %></div>
-    </div>
-    <div class="row row-spacing-gallery">
-      <div class="col-sm-4"><%= link_to 'assets/art/logo3_original.png', target: '_blank' do %><%= image_tag("art/logo3.png", height: "150",  alt: "Logo 1") %><% end %></div>
-      <div class="col-sm-4"><%= link_to 'assets/art/dragonfly1_original.png', target: '_blank' do %><%= image_tag("art/dragonfly1_original.png", height: "150",  alt: "Logo 1") %><% end %></div>
-    </div>
-    <div class="row row-spacing-gallery">
-      <div class="col-sm-4"><%= link_to 'assets/art/bee1_original.png', target: '_blank' do %><%= image_tag("art/bee1.png", height: "150",  alt: "Logo 1") %><% end %></div>
-      <div class="col-sm-4"><%= link_to 'assets/art/flower3_original.png', target: '_blank' do %><%= image_tag("art/flower3_original.png", height: "150",  alt: "Logo 1") %><% end %></div>
-    </div>
-    <div class="row row-spacing-gallery">
-      <div class="col-sm-4"><%= link_to 'assets/art/flower4_original.png', target: '_blank' do %><%= image_tag("art/flower4.png", height: "150",  alt: "Flower 1") %><% end %></div>
-      <div class="col-sm-4"><%= link_to 'assets/art/flower5_original.png', target: '_blank' do %><%= image_tag("art/flower5.png", height: "150",  alt: "Flower 2") %><% end %></div>
-    </div>
-    <div class="row row-spacing-gallery">
-      <div class="col-sm-4"><%= link_to 'assets/art/flower6_original.png', target: '_blank' do %><%= image_tag("art/flower6.png", height: "150",  alt: "Flower 1") %><% end %></div>
-      <div class="col-sm-4"><%= link_to 'assets/art/flower7_original.png', target: '_blank' do %><%= image_tag("art/flower7.png", height: "150",  alt: "Flower 2") %><% end %></div>
-    </div>
-    <div class="row row-spacing-gallery">
-      <div class="col-sm-4"><%= link_to 'assets/art/flower8_original.png', target: '_blank' do %><%= image_tag("art/flower8.png", height: "150",  alt: "Flower 1") %><% end %></div>
-    </div>
   </div>
+</div>
+
+<div class="row row-spacing-gallery">
+  <div class="col-xs-offset-1 col-xs-10 col-sm-4">
+    <%= link_to 'assets/art/butterfly1_original.png', target: '_blank' do %><%= image_tag("art/butterfly1.png", class: "center-block about-artwork", alt: "Butterfly 1") %><% end %>
+  </div>
+  <div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-4">
+    <%= link_to 'assets/art/butterfly2_original.png', target: '_blank' do %><%= image_tag("art/butterfly2.png", class: "center-block about-artwork", alt: "Butterfly 2") %><% end %>
+  </div>
+</div>
+
+<div class="row row-spacing-gallery">
+  <div class="col-xs-offset-1 col-xs-10 col-sm-4">
+    <%= link_to 'assets/art/flower1_original.png', target: '_blank' do %><%= image_tag("art/flower1.png", class: "center-block about-artwork", alt: "Flower 1") %><% end %>
+  </div>
+  <div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-4">
+    <%= link_to 'assets/art/flower2_original.png', target: '_blank' do %><%= image_tag("art/flower2.png", class: "center-block about-artwork", alt: "Flower 2") %><% end %>
+  </div>
+</div>
+
+<div class="row row-spacing-gallery">
+  <div class="col-xs-offset-1 col-xs-10 col-sm-4">
+    <%= link_to 'assets/art/logo1_original.png', target: '_blank' do %><%= image_tag("art/logo1.png", class: "center-block about-artwork", alt: "Logo 1") %><% end %>
+  </div>
+  <div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-4">
+    <%= link_to 'assets/art/logo2_original.png', target: '_blank' do %><%= image_tag("art/logo2.png", class: "center-block about-artwork", alt: "Logo 2") %><% end %>
+  </div>
+</div>
+
+<div class="row row-spacing-gallery">
+  <div class="col-xs-offset-1 col-xs-10 col-sm-4">
+    <%= link_to 'assets/art/logo3_original.png', target: '_blank' do %><%= image_tag("art/logo3.png", class: "center-block about-artwork", alt: "Logo 3") %><% end %>
+  </div>
+  <div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-4">
+    <%= link_to 'assets/art/dragonfly1_original.png', target: '_blank' do %><%= image_tag("art/dragonfly1_original.png", class: "center-block about-artwork", alt: "Dragonfly 1") %><% end %>
+  </div>
+</div>
+
+<div class="row row-spacing-gallery">
+  <div class="col-xs-offset-1 col-xs-10 col-sm-4">
+    <%= link_to 'assets/art/bee1_original.png', target: '_blank' do %><%= image_tag("art/bee1.png", class: "center-block about-artwork", alt: "Bee 1") %><% end %>
+  </div>
+  <div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-4">
+    <%= link_to 'assets/art/flower3_original.png', target: '_blank' do %><%= image_tag("art/flower3_original.png", class: "center-block about-artwork", alt: "Flower 3") %><% end %>
+  </div>
+</div>
+
+<div class="row row-spacing-gallery">
+  <div class="col-xs-offset-1 col-xs-10 col-sm-4">
+    <%= link_to 'assets/art/flower4_original.png', target: '_blank' do %><%= image_tag("art/flower4.png", class: "center-block about-artwork", alt: "Flower 4") %><% end %>
+  </div>
+  <div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-4">
+    <%= link_to 'assets/art/flower5_original.png', target: '_blank' do %><%= image_tag("art/flower5.png", class: "center-block about-artwork", alt: "Flower 5") %><% end %>
+  </div>
+</div>
+
+<div class="row row-spacing-gallery">
+  <div class="col-xs-offset-1 col-xs-10 col-sm-4">
+    <%= link_to 'assets/art/flower6_original.png', target: '_blank' do %><%= image_tag("art/flower6.png", class: "center-block about-artwork", alt: "Flower 6") %><% end %>
+  </div>
+  <div class="col-xs-offset-1 col-xs-10 col-sm-offset-0 col-sm-4">
+    <%= link_to 'assets/art/flower7_original.png', target: '_blank' do %><%= image_tag("art/flower7.png", class: "center-block about-artwork", alt: "Flower 7") %><% end %>
+  </div>
+</div>
+
+<div class="row row-spacing-gallery">
+  <div class="col-xs-offset-1 col-xs-10 col-sm-4">
+    <%= link_to 'assets/art/flower8_original.png', target: '_blank' do %><%= image_tag("art/flower8.png", class: "center-block about-artwork", alt: "Flower 8") %><% end %>
+  </div>
+</div>

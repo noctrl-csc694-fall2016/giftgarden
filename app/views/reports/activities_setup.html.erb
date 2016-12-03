@@ -1,37 +1,43 @@
 <% provide(:title, "Activities Report") %>
-<div class="row">
-  <div class="col-sm-8 col-xs-offset-2">
+<div class="row report-title-row">
+  <div class="col-xs-offset-1 col-xs-10">
     <div id="flash"></div>
     <div class="page-header">
-      <h2>Activities Report <small>&nbsp;
-      All Activities within the specifications are saved to a PDF file: <br />
-      <b>Activity Report <%= Time.now.to_date.to_s %>.pdf</b></small> <%= image_tag("icons/flower7_square.png", height: "48",  alt: "Users", class: "pull-right hidden-xs") %></h2>
+      <h2>Activities Report 
+        <%= image_tag("icons/flower7_square.png", height: "64",  alt: "Users", class: "pull-right hidden-xs") %>
+        <small>&nbsp; &mdash; generate a PDF report of Activities that meet your criteria.<br>
+          Output file is: <span class="report-file-name">Activity Report <%= Time.now.to_date.to_s %>.pdf</span>
+        </small> 
+      </h2>
   	</div>
   </div>
 </div>
-<!-- Content -->
+
+<!-- Report form -->
 <%= form_tag '/report-activities-pdf', multipart:true do %>
 
-  <section class='report-container'>
-    <div class="report-left-half">
-      <span class='report-tab'>Timeframe:</span><br />
-        <%= select_tag 'timeframe', options_for_select(Activity::TIMES) %>
-    </div>
-  </section><br />
-  
-  <section class='report-container'>
-    <div class="report-left-half">
-      <span class='report-tab'>Sort By:</span><br />
-      <%= select_tag 'sortby', options_for_select(Activity::SORTSBASIC) %>
-    </div>
-  </section><br />
-  
-  <div class="report-submit">
+<div class="row report-form-row">
+  <div class="col-xs-8 col-xs-offset-2">
+    Timeframe:<br>
+    <%= select_tag 'timeframe', options_for_select(Activity::TIMES) %>
+  </div>
+</div>
+
+<div class="row report-form-row">
+  <div class="col-xs-8 col-xs-offset-2">
+    Sort by:<br>
+    <%= select_tag 'sortby', options_for_select(Activity::SORTSBASIC) %>
+  </div>
+</div>
+
+<div class="row report-buttons-row">
+  <div class="col-xs-8 col-xs-offset-2">
     <%= submit_tag "Generate Report", class: "btn btn-success" %>
     &nbsp;
     <%=link_to "Cancel", reports_url, class: "btn btn-danger" %>
   </div>
-  
+</div>
+
 <% end %>
 
 <script>

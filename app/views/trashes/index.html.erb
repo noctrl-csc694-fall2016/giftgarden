@@ -1,19 +1,28 @@
 <% provide(:title, "Trash Report") %>
-<div class="row">
-  <div class="col-sm-8 col-xs-offset-2">
+<div class="row report-title-row">
+  <div class="col-xs-offset-1 col-xs-10">
     <div id="flash"></div>
     <div class="page-header">
-      <h2>Trash Report <small>&nbsp; Generate a pdf file with all deleted gifts, activities, and donors.</small><%= image_tag("icons/flower5_square.png", height: "48",  alt: "Users", class: "pull-right hidden-xs") %></h2>
+      <h2>Trash Report 
+        <%= image_tag("icons/flower5_square.png", height: "64",  alt: "Users", class: "pull-right hidden-xs") %>
+        <small>&nbsp; &mdash; generate a PDF file of all deleted Activities, Donors, and Gifts. <br>
+          Output file is: <span class="report-file-name">trashReport-<%= Time.now.to_date.to_s %>.pdf</span>
+        </small>
+      </h2>
   	</div>
   </div>
 </div>
 
 <%= form_tag '/trashes-trash-pdf', multipart:true do %>
-  <div class="report-submit">
+
+<div class="row report-buttons-row">
+  <div class="col-xs-8 col-xs-offset-2">
     <%= submit_tag "Generate Report", class: "btn btn-success" %>
     &nbsp;
     <%=link_to "Cancel", reports_url, class: "btn btn-danger" %>
   </div>
+</div>
+
 <% end %>
 
 <script>

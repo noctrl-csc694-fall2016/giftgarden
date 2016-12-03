@@ -2,9 +2,12 @@
 <div class="row">
   <div class="col-sm-8 col-xs-offset-2">
     <div class="page-header">
-      <h2>In Kind Gifts Report <small>&nbsp;
-      All Gifts within the specifications are saved to a PDF file: <br />
-      <b>In Kind Gifts Report <%= Time.now.to_date.to_s %>.pdf</b></small><%= image_tag("icons/flower3_square.png", height: "48",  alt: "Users", class: "pull-right hidden-xs") %></h2>
+      <h2>In Kind Gifts Report
+        <%= image_tag("icons/flower3_square.png", height: "48",  alt: "Users", class: "pull-right hidden-xs") %>
+        <small>&nbsp; &mdash; generate a PDF report of in kind Gifts. <br>
+          Output file is: <span class="report-file-name">In Kind Gifts Report <%= Time.now.to_date.to_s %>.pdf</span>
+        </small>
+      </h2>
   	</div>
   </div>
 </div>
@@ -12,6 +15,36 @@
 <!-- Form Content -->
 <%= form_tag '/report-inkind-pdf', multipart:true do %>
 
+<div class="row report-form-row">
+  <div class="col-xs-8 col-xs-offset-2">
+    Activity: <br>
+    <%= select_tag "activity", options_from_collection_for_select(@activities, "id", "name") %>
+  </div>
+</div>
+
+<div class="row report-form-row">
+  <div class="col-xs-8 col-xs-offset-2">
+    Timeframe: <br>
+    <%= select_tag 'times', options_for_select(Gift::TIMES) %>
+  </div>
+</div>
+
+<div class="row report-form-row">
+  <div class="col-xs-8 col-xs-offset-2">
+    Sort by: <br>
+    <%= select_tag 'sorts', options_for_select(Gift::SORTS) %>
+  </div>
+</div>
+
+<div class="row report-buttons-row">
+  <div class="col-xs-8 col-xs-offset-2">
+    <%= submit_tag "Generate Report", class: "btn btn-success" %>
+    &nbsp;
+    <%=link_to "Cancel", reports_url, class: "btn btn-danger" %>
+  </div>
+</div>
+
+<!--
   <section class='report-container'>
     
     <div class='report-third-left'>
@@ -36,8 +69,9 @@
     &nbsp;
     <%=link_to "Cancel", reports_url, class: "btn btn-danger" %>
   </div>
+-->
+
 <% end %>
-<!-- end Form Content -->
 
 <!-- Allows Report button to be used repeatedly, and resets the form. -->
 <script>
