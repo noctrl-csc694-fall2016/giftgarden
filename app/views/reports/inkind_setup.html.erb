@@ -44,33 +44,6 @@
   </div>
 </div>
 
-<!--
-  <section class='report-container'>
-    
-    <div class='report-third-left'>
-      <span class='report-tab'>Activity:</span><br />
-      <%= select_tag "activity", options_from_collection_for_select(@activities, "id", "name") %>
-    </div>
-
-    <div class='report-third-middle'>
-      <span class='report-tab'>Timeframe:</span><br />
-      <%= select_tag 'times', options_for_select(Gift::TIMES) %>
-    </div>
-
-    <div class='report-third-right'>
-      <span class='report-tab'>Sort By:</span><br />
-      <%= select_tag 'sorts', options_for_select(Gift::SORTS) %>
-    </div>
-
-  </section><br />
-
-  <div class="report-submit">
-    <%= submit_tag "Generate Report", class: "btn btn-success" %>
-    &nbsp;
-    <%=link_to "Cancel", reports_url, class: "btn btn-danger" %>
-  </div>
--->
-
 <% end %>
 
 <!-- Allows Report button to be used repeatedly, and resets the form. -->

@@ -1,11 +1,17 @@
 <% provide(:title, "Hyper Surf") %>
 <div class="row">
-  <div class="col-sm-8 col-xs-offset-2">
+  <div class="col-xs-offset-1 col-sm-10">
   	<div class="page-header">
-  		<h2>Hyper Surf<%= image_tag("icons/butterfly2_square.png", height: "48",  alt: "New Gifts", class: "pull-right hidden-xs") %></h2>
+  		<h2>Hyper Surf
+  		  <%= image_tag( random_artwork_icon, height: "64",  alt: "Garden artwork icon", class: "pull-right hidden-xs") %>
+  		  <small>
+  		    &nbsp; &mdash; quickly search all Activity, Donor and Gift data in The Garden.
+  		    Select a row below to surf to that object.
+  		  </small>
+  		</h2>
   		<div class="row relative-row">
         <div class="text-left">
-          <span class="record-count"><%= pluralize(@fullResultSet.count, "result") %> located for the surf term "<%= params[:term] %>".</span>
+          <span class="record-count"><%= pluralize(@fullResultSet.count, "result") %> found for term "<%= params[:term] %>".</span>
         </div>
       </div>
   	</div>
@@ -20,7 +26,7 @@
         <div class="panel-heading">
           <h4 class="panel-title">
             <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-              <span class="glyphicon glyphicon-minus"></span>Filter/Sort Hyper Surf
+              <span class="glyphicon glyphicon-plus"></span>Filter/Sort Hyper Surf
             </a>
           </h4>
         </div>

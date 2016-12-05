@@ -2,125 +2,192 @@
 
 <!--%=form_for(@gift), url: {action: "hiddenFrame"} do |f| %-->
 <%=form_for(@gift) do |f| %>
-  <div class="row form-group">
-    <%=render 'shared/gift_error_messages' %>
-    <div class="col-xs-3 col-xs-offset-2">
-      <div class="line-break">
-        <%=f.label :donor %>
-        <span class="required-field-marker">*</span>
-      </div>
-      <%= @donor_id %>
-      <% if @gift.new_record? %>
-        <%=f.select :donor_id, options_for_select(@donors.sort!, :selected => @gift.donor_id || params[:donor_id]), include_blank: "Select a donor", class: 'form-control input-sm' %>
-      <% else %>
-        <%= get_donor_full_name(@gift) %>
-      <% end %>
-    </div>
-    <div class="col-xs-3 col-xs-offset-1">
-      <div class="line-break">
-        <%=f.label :activity %>
-        <span class="required-field-marker">*</span>
-      </div>
-        <% if @gift.new_record? %>
-          <%=f.select :activity_id,  options_for_select(@activities.sort!, :selected => @gift.activity_id || params[:activity_id]), include_blank: "Select an activity", class:'form-control input-sm dropdown-menu' %>
-        <% else %>
-          <%= get_activity_name(@gift) %>
-        <% end %>
-      </div>
-  </div> <!-- row -->
 
-  <div class="row form-group">
-    <div class="col-xs-3 col-xs-offset-2">
-      <%=f.label :gift_date %>
-      <span class="required-field-marker">*</span>
-      <%=f.date_field :donation_date, :value => @gift.donation_date || params[:donation_date], class: 'form-control input-sm' %>
-    </div>
-    <div class="col-xs-3 col-xs-offset-1">
-      <%=f.label :amount %>
-      <span class="required-field-marker">*</span>
-      <div class="input-group">
-        <div class="input-group-addon">$</div>
-        <!--Was not able to add precision in the view with an amount from a parameter. Will need to add this validation to the the controller!!!!!-->
-        <%=f.number_field :amount, :value =>  params[:amount] || @gift.amount, class: 'form-control input-sm' %>
-        <!--%=f.number_field :amount, :html_options => {value: number_with_precision(f.object.value, precision: 2) || params[:amount]}, class: 'form-control input-sm'%-->
-      </div>
-    </div>
-  </div> <!-- row -->
+<div class="row" >
+  <%=render 'shared/gift_error_messages' %>
 
-  <div class="row form-group">
-    <div class="col-xs-3 col-xs-offset-2">
-      <%=f.label :gift_type %>
-        <span class="required-field-marker">*</span>
-        <%=f.select(:gift_type, options_for_select(Gift.gift_types.keys, :selected => params[:gift_type] || @gift.gift_type),{}, {:onchange=> "GiftTypeCheck($('#gift_gift_type').val());", :class => "form-control"})%>
-    </div>
-    <div class="col-xs-3  col-xs-offset-1">
-      <%= f.label :solicited_by %>
-      <%= f.text_field :solicited_by, :value => @gift.solicited_by || params[:solicited_by], class: 'form-control input-sm' %>
+  <!-- Required fields within this dotted border -->
+  <div class="col-xs-offset-2 col-xs-8 required-form-area">
+    <h4 class="required-form-title">Required fields</h3>
+
+      <div class="row form-group">
+    
+        <div class="col-xs-6">
+          <div class="line-break">
+            <%=f.label :donor %>
+            <span class="required-field-marker">*</span>
+          </div>
+          <%= @donor_id %>
+          <% if @gift.new_record? %>
+            <%=f.select :donor_id, options_for_select(@donors.sort!, :selected => @gift.donor_id || params[:donor_id]), include_blank: "Select a donor", class: 'form-control input-sm' %>
+          <% else %>
+            <%= get_donor_full_name(@gift) %>
+          <% end %>
+        </div>
+        <div class="col-xs-6">
+          <div class="line-break">
+            <%=f.label :activity %>
+            <span class="required-field-marker">*</span>
+          </div>
+            <% if @gift.new_record? %>
+              <%=f.select :activity_id,  options_for_select(@activities.sort!, :selected => @gift.activity_id || params[:activity_id]), include_blank: "Select an activity", class:'form-control input-sm dropdown-menu' %>
+            <% else %>
+              <%= get_activity_name(@gift) %>
+            <% end %>
+          </div>
+      </div> <!-- row -->
+    
+      <div class="row form-group">
+        <div class="col-xs-6">
+          <%=f.label :gift_date %>
+          <span class="required-field-marker">*</span>
+          <%=f.date_field :donation_date, :value => @gift.donation_date || params[:donation_date], class: 'form-control input-sm' %>
+        </div>
+        <div class="col-xs-6">
+          <%=f.label :amount %>
+          <span class="required-field-marker">*</span>
+          <div class="input-group">
+            <div class="input-group-addon">$</div>
+            <!--Was not able to add precision in the view with an amount from a parameter. Will need to add this validation to the the controller!!!!!-->
+            <%=f.number_field :amount, :value =>  params[:amount] || @gift.amount, class: 'form-control input-sm' %>
+            <!--%=f.number_field :amount, :html_options => {value: number_with_precision(f.object.value, precision: 2) || params[:amount]}, class: 'form-control input-sm'%-->
+          </div>
+        </div>
+      </div> <!-- row -->
+    
+      <div class="row form-group">
+        <div class="col-xs-6">
+          <%=f.label :gift_type %>
+            <span class="required-field-marker">*</span>
+            <%=f.select(:gift_type, options_for_select(Gift.gift_types.keys, :selected => params[:gift_type] || @gift.gift_type),{}, {:onchange=> "GiftTypeCheck($('#gift_gift_type').val());", :class => "form-control"})%>
+        </div>
+      </div>
+    
+      <div class="row form-group">
+        <div class=" col-xs-offset-1 col-xs-4">
+          <%=f.label :check_date, :id=>:check_date %>
+          <%=f.date_field :check_date, class: 'form-control input-sm' %>
+        </div>
+        <div class="col-xs-4">
+          <%= f.label :check_number, :id=>:check_number %>
+          <%= f.number_field :check_number, class: 'form-control input-sm' %>
+        </div>
+      </div> <!-- row -->
+
+  </div>
+</div>   <!-- row -->
+
+
+<div class="row form-group">
+  <br><br>
+  <div class="col-xs-offset-2 col-xs-2">
+    <%= f.check_box :anonymous, {:check => @gift.anonymous} %>
+    <%= f.label :anonymous %>
+  </div>
+</div>   <!-- row -->
+
+<div class="row form-group">
+  <div class="col-xs-offset-2 col-xs-3">
+    <%= f.label :solicited_by %>
+    <%= f.text_field :solicited_by, :value => @gift.solicited_by || params[:solicited_by], class: 'form-control input-sm' %>
+  </div>
+  <div class="col-xs-3">
+    <%= f.label :pledge %>
+    <div class="input-group">
+      <div class="input-group-addon">$</div>
+      <%=f.number_field :pledge, class: 'form-control input-sm', value: number_with_precision(f.object.pledge, precision: 2) %>
     </div>
   </div>
+</div> <!-- row -->
 
-  <div class="row form-group">
-    <div class="col-xs-3 col-xs-offset-2">
-      <%=f.label :check_date, :id=>:check_date %>
-      <span id="check_date_req" class="required-field-marker">*</span>
-      <%=f.date_field :check_date, class: 'form-control input-sm' %>
-    </div>
-    <div class="col-xs-3  col-xs-offset-1">
-      <%= f.label :check_number, :id=>:check_number %>
-      <span id="check_number_req" class="required-field-marker">*</span>
-      <%= f.number_field :check_number, class: 'form-control input-sm' %>
-    </div>
-  </div> <!-- row -->
-  
-  <div class="row form-group">
-    <div class="col-xs-3 col-xs-offset-2">
-      <%= f.label :pledge %>
-      <div class="input-group">
-        <div class="input-group-addon">$</div>
-        <%=f.number_field :pledge, class: 'form-control input-sm', value: number_with_precision(f.object.pledge, precision: 2) %>
-      </div>
-    </div>
-    <div class="col-xs-3  col-xs-offset-1">
-      <%= f.check_box :anonymous, {:check => @gift.anonymous} %>
-      <%= f.label :anonymous %>
-    </div>
-  </div> <!-- row -->
-  
-  <div class="row form-group">
-    <div class="col-xs-4 col-xs-offset-2">
-      <%=f.label :memorial_note %>
-        </br>
-        <%=f.text_area :memorial_note, placeholder: "Enter notes here...", cols: "100", rows: "2", class: "form_control, input-sm" %>
-    </div>
-  </div> <!-- row -->
+<div class="row form-group">
+  <div class="col-xs-offset-2 col-xs-8">
+    <%=f.label :memorial_note %>
+      </br>
+      <%=f.text_area :memorial_note, placeholder: "Enter notes here...", cols: "100", rows: "2", class: "form_control, input-sm" %>
+  </div>
+</div> <!-- row -->
 
-  <div class="row form-group">
-    <div class="col-xs-4 col-xs-offset-2">
-      <%=f.label :notes %>
-        </br>
-        <%=f.text_area :notes, placeholder: "Enter notes here...", cols: "100", rows: "5", class: "form_control, input-sm" %>
-    </div>
-  </div> <!-- row -->
+<div class="row form-group">
+  <div class="col-xs-offset-2 col-xs-8">
+    <%=f.label :notes %>
+      </br>
+      <%=f.text_area :notes, placeholder: "Enter notes here...", cols: "100", rows: "5", class: "form_control, input-sm" %>
+  </div>
+</div> <!-- row -->
 
-  <!--Submit Stay & Cancel Buttons-->
-  <div class=" row form-group">
-    <div class="col-xs-8 col-xs-offset-1 text-center">
-      <%= submit_tag yield(:button_text), class: "btn btn-success" %>
-      <!--% if @gift.new_record? || params[:commit].to_s == "Stay" %-->
-        
-        <!--%= submit_tag "Stay", class: "btn btn-success" %-->
-      <!--% end %-->
-      &nbsp;
-      <%=link_to "Cancel", gifts_path(:activity_id => @gift.activity_id, :donor_id => @gift.donor_id), class: "btn btn-danger" %>
-    </div>
-  </div> <!-- row -->
+<!--Submit Stay & Cancel Buttons-->
+<div class=" row form-group">
+  <div class="col-xs-offset-2 col-xs-8 text-center">
+    <%= submit_tag yield(:button_text), class: "btn btn-success" %>
+    <!--% if @gift.new_record? || params[:commit].to_s == "Stay" %-->
+      
+      <!--%= submit_tag "Stay", class: "btn btn-success" %-->
+    <!--% end %-->
+    &nbsp;
+    <%=link_to "Cancel", gifts_path(:activity_id => @gift.activity_id, :donor_id => @gift.donor_id), class: "btn btn-danger" %>
+  </div>
+</div> <!-- row -->
   
-  <% if !@gift.new_record? %>
-    <div class="row form-group form-delete">
-      <div class="col xs-1 col-xs-offset-7">
-        <span class="glyphicon glyphicon-minus icon-donna-regular icon-donna-delete"></span>
-        <%= link_to "Delete Gift", @gift, method: :delete, data: { confirm: "Are you sure that you want to permanently remove this gift from the database? This action cannot be undone." } %>
-      </div>
+<% if !@gift.new_record? %>
+  <div class="row form-group form-delete">
+    <div class="col xs-2 col-xs-offset-8">
+      <span class="glyphicon glyphicon-minus icon-donna-regular icon-donna-delete"></span>
+      <%= link_to "Delete Gift", @gift, method: :delete, data: { confirm: "Are you sure that you want to permanently remove this gift from the database? This action cannot be undone." } %>
     </div>
-  <% end %>
+  </div>
 <% end %>
+
+<% end %>
+
+<script>
+  // onchange function for Gift type field
+  function GiftTypeCheck(type) {
+    if(type != "Check")
+    {
+      //$("#check_date").fadeOut();
+      $("#check_date").prop( "disabled", true);
+      $("#check_date_req").prop( "disabled", true);
+      $("#gift_check_date").prop( "disabled", true);
+      $("#check_number").prop( "disabled", true);
+      $("#check_number_req").prop( "disabled", true);
+      $("#gift_check_number").prop( "disabled", true);
+    }
+    else
+    {
+      //$("#check_date").fadeIn();
+      $("#check_date").prop( "disabled", false);
+      $("#check_date_req").prop( "disabled", false);
+      $("#gift_check_date").prop( "disabled", false);
+      $("#check_number").prop( "disabled", false);
+      $("#check_number_req").prop( "disabled", false);
+      $("#gift_check_number").prop( "disabled", false);
+    }
+  }
+  
+$(document).ready(function(){
+  // properly initialize gift check fields
+  var type = $('#gift_gift_type').val();
+  if(type != "Check")
+  {
+    //$("#check_date").hide();
+    $("#check_date").prop( "disabled", true);
+    $("#check_date_req").prop( "disabled", true);
+    $("#gift_check_date").prop( "disabled", true);
+    $("#check_number").prop( "disabled", true);
+    $("#check_number_req").prop( "disabled", true);
+    $("#gift_check_number").prop( "disabled", true);
+  }
+  else
+  {
+    //$("#check_date").show();
+    $("#check_date").prop( "disabled", false);
+    $("#check_date_req").prop( "disabled", false);
+    $("#gift_check_date").prop( "disabled", false);
+    $("#check_number").prop( "disabled", false);
+    $("#check_number_req").prop( "disabled", false);
+    $("#gift_check_number").prop( "disabled", false);
+  }
+});
+
+</script>

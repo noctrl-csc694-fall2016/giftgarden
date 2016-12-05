@@ -48,6 +48,7 @@ $link-dollar: rgb(133,187,101);
 $hover-light-gray: rgb(224, 230, 244);
 $hover-medium-gray: rgb(195, 207, 233);
 $hover-off-red: rgb(252, 227, 236);
+$very-light-copper: rgb(244, 224, 214);  //rgb(229, 180, 153);
 
 /* Standard Colors */
 $red: rgb(255, 0, 0);
@@ -307,6 +308,17 @@ h1{
   color: $primary-copper;
   font-weight: bold;
 }
+
+.required-form-area {
+  border: 1px dotted $very-light-copper;
+  border-radius: 16px;
+}
+
+.required-form-title {
+  color: $primary-copper !important;
+  padding: 12px 0;
+}
+
 #error_explanation {
   color: $red;
   ul {
@@ -364,7 +376,7 @@ a.btn.btn-danger{
 
 .report-file-name {
   font-weight: bold;
-  color: forestgreen;
+  color: navy;
 }
 
 .report-form-row {
@@ -431,7 +443,8 @@ a.btn.btn-danger{
   font-style: italic;
   display: block;
   margin: 7px;
-  font-weight: bold;
+  padding-left: 20px;
+/*  font-weight: bold; */
 }
 .margin-left-10{
   margin-left: 10px;
