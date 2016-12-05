@@ -11,14 +11,14 @@ module ApplicationHelper
   end
 
   # Returns random artwork file name
-  def random_artwork
-    images = [ "assets/images/art/bee1.jpg", "assets/images/art/butterfly1.jpg", 
-          "assets/images/art/butterfly2.jpg", "assets/images/art/dragonfly1.jpg",
-          "assets/images/art/flower1.jpg", "assets/images/art/flower2.jpg",
-          "assets/images/art/flower3.jpg", "assets/images/art/flower4.jpg",
-          "assets/images/art/flower5.jpg", "assets/images/art/flower6.jpg",
-          "assets/images/art/flower7.jpg", "assets/images/art/flower8.jpg",
-          "assets/images/art/ladybug1.jpg" ]
+  def random_artwork_icon
+    images = [ "icons/bee1_square.png", "icons/butterfly1_square.png", 
+          "icons/butterfly2_square.png", "icons/dragonfly1_square.png",
+          "icons/flower1_square.png", "icons/flower2_square.png",
+          "icons/flower3_square.png", "icons/flower4_square.png",
+          "icons/flower5_square.png", "icons/flower6_square.png",
+          "icons/flower7_square.png", "icons/flower8_square.png",
+          "icons/ladybug1_square.png" ]
     images[rand(images.size)]
   end
 end

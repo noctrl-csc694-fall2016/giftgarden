@@ -1,12 +1,16 @@
 <% provide(:title, "New Gift") %>
 <% provide(:button_text, "Create") %>
 <div class="row">
-  <div class="col-sm-8 col-xs-offset-2">
+  <div class="col-xs-offset-1 col-sm-10">
   	<div class="page-header">
-  		<h2>New Gift <small>&nbsp; Create one or many new Gifts</small> <%= image_tag("icons/bee1_square.png", height: "48",  alt: "New Gifts", class: "pull-right hidden-xs") %></h2>
+  		<h2>New Gift 
+  		  <%= image_tag( random_artwork_icon, height: "64",  alt: "Garden artwork icon", class: "pull-right hidden-xs") %>
+  		  <small>&nbsp; &mdash; create one or many new Gifts.
+  		    New Gifts must have an Activity and Donor.
+  		  </small>
+  		</h2>
   	</div>
   </div>
 </div>
-<div class="row">
-  <%=render 'form' %>
-</div>
+
+<%=render 'form' %>
