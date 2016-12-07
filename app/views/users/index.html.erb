@@ -1,23 +1,31 @@
 <% provide(:title, "Surf Users") %>
 <div class="row">
-  <div class="col-sm-8 col-xs-offset-2">
-  	<div class="page-header">
-  		<h2 class="page-header-surf">Surf Users <small>&nbsp; Select a row to view or edit that user</small><%= image_tag("icons/flower7_square.png", height: "48",  alt: "Users", class: "pull-right hidden-xs") %></h2>
-  		<div class="row relative-row">
-    		<div class="text-left bottom-vertical-align">
-          <span class="record-count">There are <%= pluralize(@users.count, "users") %>.</span>
-    		</div>
-    		<div class="text-right">
-    		  <div>
-    		    <%= link_to('/users/new') do %>
-  			    <span class="glyphicon glyphicon-plus icon-donna icon-donna-new"></span><span class="icon-donna-text">New User</span>
-  		    <% end %>
-    		  </div>
-    		</div>
-  		</div>
-  	</div>
+  <div class="col-xs-offset-1 col-sm-10">
+  	<div class="page-header ">
+  		<h2>Surf Users 
+  		  <%= image_tag( random_artwork_icon, height: "64",  alt: "Garden artwork icon", class: "pull-right hidden-xs") %>
+  		  <small>
+  		    &nbsp; &mdash; select a row to surf to that user
+  		  </small>
+  		</h2>
+  	</div>   <!-- page-header -->
   </div>
-</div>
+</div>   <!-- row -->
+
+<div class="row">
+  <br>
+  <div class="col-xs-offset-2 col-xs-4">
+    <p>
+      <span class="record-count">There are <%= pluralize(@users.count, "users") %>.</span>
+    </p>
+  </div>
+	<div class="col-xs-4 text-right">
+    <%= link_to('/users/new') do %>
+	    <span class="glyphicon glyphicon-plus icon-donna icon-donna-new"></span><span class="icon-donna-text">New User</span>
+	  <% end %>
+  </div>
+</div>   <!-- row -->
+
 
 <!-- Table of Users -->
 <div class="row">
@@ -64,4 +72,4 @@
         $(".alert.alert-info").addClass("extra-spacing");
     });
 </script>
-      
+

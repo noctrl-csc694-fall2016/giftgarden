@@ -1,12 +1,16 @@
 <% provide(:title, "New Donor") %>
 <% provide(:button_text, "Create") %>
 <div class="row">
-  <div class="col-sm-8 col-xs-offset-2">
+  <div class="col-xs-offset-1 col-xs-10">
   	<div class="page-header">
-  		<h2>New Donor <small>&nbsp; Create a new Donor</small><%= image_tag("icons/flower6_square.png", height: "48",  alt: "New Donor", class: "pull-right hidden-xs") %></h2>
-  	</div>
+  		<h2 class="page-header-surf">New Donor
+    		<%= image_tag( random_artwork_icon, height: "64",  alt: "Garden artwork icon", class: "pull-right hidden-xs") %>
+  		  <small>
+  		    &nbsp; &mdash; create a new Donor
+  		  </small>
+  	  </h2>
+    </div>   <!-- page-header -->
   </div>
-</div>
-<div class="row">
-  <%=render 'form' %>
-</div>
+</div>   <!-- row -->
+
+<%=render 'form' %>

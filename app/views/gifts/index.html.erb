@@ -1,28 +1,48 @@
 <% provide(:title, "Surf Gifts") %>
 <div class="row">
-  <div class="col-sm-8 col-xs-offset-2">
+  <div class="col-xs-offset-1 col-xs-10">
   	<div class="page-header">
-  		<h2 class="page-header-surf">Surf Gifts <small>&nbsp; View all Gifts; select row to edit</small><%= image_tag("icons/dragonfly1_square.png", height: "48",  alt: "New Gifts", class: "pull-right hidden-xs") %></h2>
-  		<div class="row relative-row">
-        <div class="text-left bottom-vertical-align">
-          <span class="record-count">There are <%= pluralize(@selected_gifts.count, "gift") %>.</span>
-        </div>
-        <div class="text-right">
-          <%= link_to(new_gift_path) do %>
-        	  <span class="glyphicon glyphicon-plus icon-donna icon-donna-new"></span><span class="icon-donna-text">New Gift</span>
-        	<% end %>
-          <div>
-            <%=link_to "All Activities", activities_url + "?utf8=✓&timeframe=All&sortby=&pageby=&commit=GO" %>&nbsp; | &nbsp;<%=link_to "All Donors", donors_url + "?utf8=✓&timeframe=All&sortby=&pageby=&commit=GO" %>
-          </div>
-        </div>
-      </div>
-  	</div>
+  		<h2 class="page-header-surf">Surf Gifts
+  		  <%= image_tag( random_artwork_icon, height: "64",  alt: "Garden artwork icon", class: "pull-right hidden-xs") %>
+  		  <small>
+  		    &nbsp; &mdash; view all Gifts; select row to edit
+  		  </small>
+  		</h2>
+  	</div>   <!-- page-header -->
   </div>
-</div>
+</div>   <!-- row -->
 
-<!--dropdown for filter/sort options-->
+<!-- Gift count and New Gift -->
 <div class="row">
-  <div class="col-sm-8 col-xs-offset-2">
+  <div class="col-xs-offset-1 col-xs-5">
+    <span class="record-count">Currently surfing <%= pluralize(@selected_gifts.count, "gift") %></span>
+  </div>
+  <div class="col-xs-5 text-right">
+    <%= link_to(new_gift_path) do %>
+      <span class="glyphicon glyphicon-plus icon-donna icon-donna-new"></span><span class="icon-donna-text">New Gift</span>
+    <% end %>
+  </div>
+</div>   <!-- row -->
+
+<!-- Other Surf to: links -->
+<div class="row">
+  <div class="col-xs-offset-7 col-xs-4 text-right">
+    <div class="pull-right">
+      Surf to: &nbsp;
+      <%=link_to "All Activities", activities_url + "?utf8=✓&timeframe=All&sortby=&pageby=&commit=GO" %>
+      &nbsp; | &nbsp;
+      <%=link_to "All Donors", donors_url + "?utf8=✓&timeframe=All&sortby=&pageby=&commit=GO" %>
+      &nbsp; | &nbsp;
+      <span class="surf-current">All Gifts</span>
+    </div>
+  </div>
+</div>   <!-- row -->
+
+
+<div class="row">
+  <div class="col-xs-offset-1 col-xs-10">
+    
+    <!-- Dropdown for filter/sort options -->
     <div class="panel-group" id="accordion">
       <div class="panel panel-default">
         <div class="panel-heading">
@@ -39,7 +59,7 @@
         </div>
       </div>
       
-      <!--Table -- list all requested gifts-->
+      <!-- Table of Gifts -->
       <% if @selected_gifts.count != 0 %>
       <table class="table table-striped table-hover table-bordered table-responsive">
         <thead>

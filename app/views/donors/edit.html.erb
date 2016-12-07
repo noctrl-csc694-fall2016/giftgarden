@@ -1,21 +1,34 @@
 <% provide(:title, "Edit Donor") %>
 <% provide(:button_text, "Update") %>
 <div class="row">
-  <div class="col-sm-8 col-xs-offset-2">
+  <div class="col-xs-offset-1 col-xs-10">
   	<div class="page-header">
-  		<h2 class="page-header-surf">Edit Donor <small>&nbsp; Update this Donor or surf all donor gifts</small><%= image_tag("icons/flower2_square.png", height: "48",  alt: "New Donor", class: "pull-right hidden-xs") %></h2>
-  		<aside class="text-right">
-  		  <div>
-  		    <span class="glyphicon glyphicon-plus icon-donna icon-donna-new"></span><span class="icon-donna-text">
-		      <%=link_to "Add New Gift for this Donor", new_gift_path(donor_id: @donor.id) %></span>
-  		  </div>
-  		  <div>
-          <%=link_to "All Gifts for this Donor", "/gifts?utf8=✓&activity_id=&donor_id=" + @donor.id.to_s + "&timeframe=All&sortby=&pageby=&commit=Filter" %>
-        </div>
-  		</aside>
-  	</div>
+  		<h2 class="page-header-surf">Edit Donor 
+  		  <%= image_tag( random_artwork_icon, height: "64",  alt: "Garden artwork icon", class: "pull-right hidden-xs") %>
+    		<small>
+    		  &nbsp; &mdash; update this Donor or surf all donor gifts
+    		</small>
+    	</h2>
+    </div>   <!-- page-header -->
+  </div>
+</div>   <!-- row -->
+
+<div class="row">
+  <div class="col-xs-offset-4 col-xs-6">
+    <div class="text-right">
+      <span class="glyphicon glyphicon-plus icon-donna icon-donna-new"></span>
+      <span class="icon-donna-text">
+		    <%=link_to "Add New Gift for this Donor", new_gift_path(donor_id: @donor.id) %>
+		  </span>
+    </div>
   </div>
 </div>
+
 <div class="row">
-  <%= render 'form' %>
-</div>
+  <div class="col-xs-offset-4 col-xs-6 text-right">
+    Surf to: &nbsp;
+    <%=link_to "All Gifts for this Donor", "/gifts?utf8=✓&activity_id=&donor_id=" + @donor.id.to_s + "&timeframe=All&sortby=&pageby=&commit=Filter" %>
+  </div>
+</div>   <!-- row -->
+
+<%= render 'form' %>

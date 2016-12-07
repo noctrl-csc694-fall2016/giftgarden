@@ -1,65 +1,78 @@
 <%= form_for(@activity) do |f| %>
-    <div class="row form-group">
-      <%= render 'shared/activity_error_messages' %>
-      <div class="col-xs-4 col-xs-offset-2">
-        <%= f.label :name %>
-        <span class="required-field-marker">*</span>
-        <%= f.text_field :name, class: 'form-control input-sm' %> 
-      </div>
-      <div class="col-xs-2 ">
-      <%=f.label :activity_type %>
-        <span class="required-field-marker">*</span>
-        <%=f.select(:activity_type, options_for_select(Activity.activity_types.keys, :selected => @activity.activity_type),{},:class => "form-control")%>
-    </div>
-    </div>
-    <div class="row form-group">
-      <div class="col-xs-2 col-xs-offset-2">
-        <%= f.label :start_date %>
-        <%= f.date_field :start_date, class: 'form-control' %>
-      </div>
-      <div class="col-xs-2">
-        <%= f.label :end_date %>
-        <%= f.date_field :end_date, class: 'form-control' %>
-      </div>
-      <div class="col-xs-2">
-        <%= f.label :goal %>
-        <span class="required-field-marker">*</span>
-        <div class="input-group">
-          <div class="input-group-addon">$</div>
-          <%= f.number_field :goal, class: 'form-control input-sm', value: number_with_precision(f.object.goal, precision: 2) %> 
-        </div>
-      </div>
-    </div>
-    
-    <div class="row form-group">
-      <div class="col-xs-6 col-xs-offset-2">
-        <%= f.label :description %>
-        <span class="required-field-marker">*</span>
-        <%= f.text_field :description, class: 'form-control input-sm' %> 
-      </div>
-      <div class="col-xs-2"> &nbsp; </div>
-    </div>
 
-    <div class="row form-group">
-      <div class="col-xs-6  col-xs-offset-2">
-        <%= f.label :notes %></br>
-        <%= f.text_area :notes, placeholder: "Enter notes here...", cols: "100", rows: "5", class: "form_control, input-sm" %>
-      </div>
-    </div>
+<!-- Fields: Name -->
+<div class="row form-group">
+  <%= render 'shared/activity_error_messages' %>
 
-    <div class="row form-group">
-      <div class="col-xs-4 col-xs-offset-4 text-center">
-        <%= f.submit yield(:button_text), class: "btn btn-success" %>
-        &nbsp;
-        <%= link_to "Cancel", activities_path, class: "btn btn-danger" %>
-      </div>
+  <div class="col-xs-offset-2 col-xs-3">
+    <%= f.label :name %>
+    <span class="required-field-marker">*</span>
+    <%= f.text_field :name, class: 'form-control input-sm' %> 
+  </div>
+</div>   <!-- row -->
+
+<!-- Fields: Description -->
+<div class="row form-group">
+  <div class="col-xs-offset-2 col-xs-6">
+    <%= f.label :description %>
+    <span class="required-field-marker">*</span>
+    <%= f.text_field :description, class: 'form-control input-sm' %> 
+  </div>
+  <div class="col-xs-2"> &nbsp; </div>
+</div>   <!-- row -->
+
+<!-- Fields: Activity Type, Goal -->
+<div class="row form-group">
+  <div class="col-xs-offset-2 col-xs-3">
+  <%=f.label :activity_type %>
+    <span class="required-field-marker">*</span>
+    <%=f.select(:activity_type, options_for_select(Activity.activity_types.keys, :selected => @activity.activity_type),{},:class => "form-control")%>
+  </div>
+  <div class="col-xs-3">
+    <%= f.label :goal %>
+    <span class="required-field-marker">*</span>
+    <div class="input-group">
+      <div class="input-group-addon">$</div>
+      <%= f.number_field :goal, class: 'form-control input-sm', value: number_with_precision(f.object.goal, precision: 2) %> 
     </div>
-    <% if donor_count_per_activity(@activity) == 0 && !@activity.new_record? %>
-      <div class="row form-group form-delete">
-        <div class="col xs-1 col-xs-offset-7">
-          <span class="glyphicon glyphicon-minus icon-donna-regular icon-donna-delete"></span>
-          <%= link_to "Delete Activity", @activity, method: :delete, data: { confirm: "Are you sure that you want to permanently remove this activity from the database? This action cannot be undone." } %>
-        </div>
-      </div>
-    <% end %>
-  <% end %>
+  </div>
+</div>   <!-- row -->
+
+<!-- Fields: Start Date, End Date -->
+<div class="row form-group">
+  <div class="col-xs-offset-2 col-xs-3">
+    <%= f.label :start_date %>
+    <%= f.date_field :start_date, class: 'form-control' %>
+  </div>
+  <div class="col-xs-3">
+    <%= f.label :end_date %>
+    <%= f.date_field :end_date, class: 'form-control' %>
+  </div>
+</div>   <!-- row -->
+
+<!-- Fields: Notes -->
+<div class="row form-group">
+  <div class="col-xs-offset-2 col-xs-6">
+    <%= f.label :notes %></br>
+    <%= f.text_area :notes, placeholder: "Enter notes here...", cols: "100", rows: "5", class: "form_control, input-sm" %>
+  </div>
+</div>   <!-- row -->
+
+<div class="row form-group">
+  <div class="col-xs-offset-2 col-xs-6  text-center">
+    <%= f.submit yield(:button_text), class: "btn btn-success" %>
+    &nbsp;
+    <%= link_to "Cancel", activities_path, class: "btn btn-danger" %>
+  </div>
+</div>   <!-- row -->
+
+<% if donor_count_per_activity(@activity) == 0 && !@activity.new_record? %>
+  <div class="row form-group form-delete">
+    <div class="col xs-1 col-xs-offset-7">
+      <span class="glyphicon glyphicon-minus icon-donna-regular icon-donna-delete"></span>
+      <%= link_to "Delete Activity", @activity, method: :delete, data: { confirm: "Are you sure that you want to permanently remove this activity from the database? This action cannot be undone." } %>
+    </div>
+  </div>
+<% end %>
+
+<% end %>

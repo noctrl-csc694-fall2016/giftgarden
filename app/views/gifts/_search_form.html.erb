@@ -1,33 +1,35 @@
 <!--form to build filter/sort options-->
 <%= form_tag({controller: "gifts", action: "index"}, method: :get) do %>
   <div class="row form-group">
-    <div class="col-xs-2">
+    <div class="col-xs-3">
       <div class="line-break">
         <p>Activity</p>
       </div>
       <%= select_tag :activity_id,  options_for_select(@activities.sort!, :selected => params[:activity_id] || "" ), include_blank: "All activities", class:'form-control input-sm' %>
       <!--%= select_tag(:activity_id, options_for_select(@activities, params[:activity_id] || "" ), include_blank: "All Activities", class: 'form-control input-sm') %-->
     </div>
-    <div class="col-xs-2">
+    <div class="col-xs-3">
       <div class="line-break">
         <p>Donor</p>
       </div>
       <%= select_tag :donor_id, options_for_select(@donors.sort!, :selected => params[:donor_id]), include_blank: "All Donors", class: 'form-control input-sm' %>
       <!--%= select_tag(:donor_id, options_for_select(@donors, params[:donor_id] || ""), include_blank: "All Donors", class: 'form-control input-sm') %-->
     </div>
-    <div class="col-xs-2">
+  </div>
+  <div class="row form-group">
+    <div class="col-xs-3">
       <div class="line-break">
         <p>Timeframe</p>
       </div>
       <%= select_tag(:timeframe, options_for_select(Gift::TIMES, params[:timeframe]), class: 'form-control input-sm') %>
     </div>
-    <div class="col-xs-2">
+    <div class="col-xs-3">
       <div class="line-break">
         <p>Sort By</p>
       </div>
       <%= select_tag(:sortby, options_for_select(Gift::SORTS, params[:sortby]), class: 'form-control input-sm') %>
     </div>
-    <div class="col-xs-2">
+    <div class="col-xs-3">
       <div class="line-break">
         <p>Gifts Per Page</p>
       </div>

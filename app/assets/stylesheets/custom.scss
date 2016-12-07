@@ -444,6 +444,7 @@ a.btn.btn-danger{
   display: block;
   margin: 7px;
   padding-left: 20px;
+  padding-bottom: 10px;
 /*  font-weight: bold; */
 }
 .margin-left-10{
@@ -455,6 +456,10 @@ a.btn.btn-danger{
   margin-left: 10px;
   margin-bottom: 10px;
   font-style: italic;
+}
+.surf-current {
+  font-weight: bold;
+  color: $primary-copper;
 }
 .explaination{
   font-style: italic;

@@ -1,12 +1,16 @@
 <% provide(:title, "New Activity") %>
 <% provide(:button_text, "Create Activity") %>
 <div class="row">
-  <div class="col-sm-8 col-xs-offset-2">
+  <div class="col-xs-offset-1 col-sm-10">
   	<div class="page-header">
-  		<h2>New Activity <small>&nbsp; Create a new Activity</small><%= image_tag("icons/flower1_square.png", height: "48",  alt: "New Gifts", class: "pull-right hidden-xs") %></h2>
-  	</div>
+  		<h2 class="page-header-surf">New Activity
+  		  <%= image_tag( random_artwork_icon, height: "64",  alt: "Garden artwork icon", class: "pull-right hidden-xs") %>
+  		  <small>
+  		    &nbsp; &mdash; create a new Activity
+  		  </small>
+  		</h2>
+  	</div>   <!-- page-header -->
   </div>
-</div>
-<div class="row">
-  <%=render 'form' %>
-</div>
+</div>   <!-- row -->
+
+<%=render 'form' %>

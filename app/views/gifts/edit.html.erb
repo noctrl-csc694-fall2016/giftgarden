@@ -1,11 +1,16 @@
 <% provide(:title, "Edit Gift") %>
 <% provide(:button_text, "Update") %>
 <div class="row">
-  <div class="col-sm-8 col-xs-offset-2">
+  <div class="col-xs-offset-1 col-xs-10">
   	<div class="page-header">
-  		<h2 class="page-header-surf">Edit Gift <small>&nbsp; Update this Gift</small><%= image_tag("icons/flower8_square.png", height: "48",  alt: "New Gifts", class: "pull-right hidden-xs") %></h2>
-  	</div>
+  		<h2 class="page-header-surf">Edit Gift 
+  		  <%= image_tag( random_artwork_icon, height: "64",  alt: "Garden artwork icon", class: "pull-right hidden-xs") %>
+  		  <small>
+  		    &nbsp; &mdash; update this Gift
+  		  </small>
+  		</h2>
+  	</div>   <!-- page-header -->
   </div>
-</div>
+</div>   <!-- row -->
 
 <%= render 'form' %>

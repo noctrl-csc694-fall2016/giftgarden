@@ -1,29 +1,48 @@
 <% provide(:title, "Surf Activities") %>
 <div class="row">
-  <div class="col-sm-8 col-xs-offset-2">
+  <div class="col-xs-offset-1 col-xs-10">
   	<div class="page-header">
-  		<h2 class="page-header-surf">Surf Activities <small>&nbsp; View all Activities; select row to edit</small><%= image_tag("icons/flower3_square.png", height: "48",  alt: "New Gifts", class: "pull-right hidden-xs") %></h2>
-  		<div class="row relative-row">
-    		<div class="text-left bottom-vertical-align">
-          <span class="record-count">There are <%= pluralize(@selected_activities.count, "activity") %>.</span>
-    		</div>
-    		<div class="text-right">
-    		  <%= link_to(new_activity_path) do %>
-  			    <span class="glyphicon glyphicon-plus icon-donna icon-donna-new"></span><span class="icon-donna-text">New Activity</span>
-  		    <% end %>
-    		  <div>
-        		  <%=link_to "All Donors", donors_url + "?utf8=✓&timeframe=All&sortby=&pageby=&commit=GO" %>&nbsp; | &nbsp;<%=link_to "All Gifts", gifts_url + "?utf8=✓&activity_id=&donor_id=&timeframe=All&sortby=&pageby=&commit=GO" %>
-          </div>
-    		</div>
-  		</div>
-  	</div>
+  		<h2 class="page-header-surf">Surf Activities 
+  		  <%= image_tag( random_artwork_icon, height: "64",  alt: "Garden artwork icon", class: "pull-right hidden-xs") %>
+  		  <small>
+  		    &nbsp; &mdash; view all Activities; select row to edit
+  		  </small>
+  		</h2>
+  	</div>   <!-- page-header -->
   </div>
-</div>
+</div>   <!-- row -->
 
-<!--dropdown for filter/sort options-->
+<!-- Activity count and New Activities -->
+<div class="row ">
+  <div class="col-xs-offset-1 col-xs-5">
+    <span class="record-count">Currently surfing <%= pluralize(@selected_activities.count, "activity") %></span>
+	</div>
+  <div class="col-xs-5 text-right">
+    <div class="pull-right">
+      <%= link_to(new_activity_path) do %>
+	    <span class="glyphicon glyphicon-plus icon-donna icon-donna-new"></span><span class="icon-donna-text">New Activity</span>
+    <% end %>
+    </div>
+  </div>
+</div>   <!-- row -->
+
+<!-- Surf to: links-->
 <div class="row">
-  <div class="col-sm-8 col-xs-offset-2">
-    
+  <div class="col-xs-offset-5 col-xs-6 text-right">
+    Surf to: &nbsp; 
+    <span class="surf-current">All Activities</span>
+    &nbsp; | &nbsp;
+    <%=link_to "All Donors", donors_url + "?utf8=✓&timeframe=All&sortby=&pageby=&commit=GO" %> 
+    &nbsp; | &nbsp;
+    <%=link_to "All Gifts", gifts_url + "?utf8=✓&activity_id=&donor_id=&timeframe=All&sortby=&pageby=&commit=GO" %>
+  </div>
+</div>   <!-- row -->
+
+
+<div class="row">
+  <div class="col-xs-offset-1 col-xs-10 ">
+
+    <!-- Dropdown for filter/sort options-->
     <div class="panel-group" id="accordion">
       <div class="panel panel-default">
         <div class="panel-heading">
@@ -40,7 +59,7 @@
         </div>
       </div>
     
-    
+      <!-- Table of Activities -->
       <% if @selected_activities.count != 0 %>
       <table class="table table-striped table-hover table-bordered table-responsive">
         
