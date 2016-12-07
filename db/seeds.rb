@@ -8,12 +8,18 @@
   #             Andy W, Oct 18 2016
   #             Pat M, Nov 3, 2016
   #----------------------------------#
-  
-case Rails.env
+
+#
+# Bill - Dec 2016
+# For now, I want all the fake Activity, Donor and Gift tests
+# Ultimately, later, this will only happen in developement
+#
+
+#case Rails.env
 
 #commented out code in this file is for production seeds! un-comment and use at that time.
 
-when "development" 
+#when "development" 
   #creates many example activities, donors, gifts, and users
   #these are only used to development environment purposes
   #create sample activties
@@ -333,7 +339,12 @@ when "development"
       amount: Faker::Number.between(1, 100000),
       gift_type: [:Cash, :'Credit Card', :Stock, :'In Kind'].sample)
   end
-                
+
+
+case Rails.env
+
+when development
+
   #create sample users; id of 1 is super admin (profbill)
   #permissions are 
   #level 0 = standard user (default)
@@ -378,6 +389,7 @@ when "development"
       username:         username,
       password_digest:  password_digest)
   end
+
 when "production"
   #creates super admin and general activity
   #these are ONLY created for the production environment
