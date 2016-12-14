@@ -20,7 +20,7 @@ class ContactLYBUNTPdf < Prawn::Document
   end
 
   def header
-    image "#{Rails.root}/app/assets/images/giftgardensmall.jpg", 
+    image ReportsHelper.report_logo, 
     width: 40, height: 40
     move_up 30
     text "LYBUNT Full Contact Donors Report", size: 24, style: :bold, :align => :center  

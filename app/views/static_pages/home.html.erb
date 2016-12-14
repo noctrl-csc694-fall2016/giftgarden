@@ -1,7 +1,7 @@
 <% provide(:title, "Home") %>
   <div class="row">
     <div class="page-header col-xs-10 col-xs-offset-1">
-        <h2>Welcome <small>&nbsp; - tend your nonprofit garden of Activities, Donors and Gifts</small></h2>
+        <h2>Welcome <small>&nbsp; &mdash; tend your nonprofit garden of Activities, Donors and Gifts</small></h2>
     </div>
     <!-- col -->
   </div>
@@ -11,7 +11,7 @@
 			<div class="media">
 			  <div class="media-right media-middle">
 				  <%=link_to(new_gift_path) do %>
-            <%= image_tag("icons/flower1_square.png", alt: "New Gifts", class: "media-object home-artwork") %>
+            <%= image_tag("icons/bee1_square.png", alt: "New Gifts", class: "media-object home-artwork") %>
           <% end %>
 				</div>
 				<div class="media-body" style="padding-left: 10px;">
@@ -25,7 +25,7 @@
 			<div class="media">
 			  <div class="media-right media-middle">
 				  <%=link_to(reports_path) do %>
-				    <%= image_tag("icons/butterfly1_square.png", alt: "Reports", class: "media-object home-artwork") %>
+				    <%= image_tag("icons/flower5_square.png", alt: "Reports", class: "media-object home-artwork") %>
   			  <% end %>
 				</div>
 				<div class="media-body" style="padding-left: 10px;">
@@ -42,7 +42,7 @@
 			<div class="media">
 			  <div class="media-right media-middle">
 				  <%=link_to(activities_path + "?utf8=%E2%9C%93&timeframe=All&sortby=&pageby=&commit=GO" ) do %>
-            <%= image_tag("icons/dragonfly1_square.png", alt: "New Gifts", class: "media-object home-artwork") %>
+            <%= image_tag("icons/flower7_square.png", alt: "Surf!", class: "media-object home-artwork") %>
           <% end %>
 				</div>
 				<div class="media-body" style="padding-left: 10px;">
@@ -57,7 +57,7 @@
 			<div class="media">
 			  <div class="media-right media-middle">
 				  <%=link_to(import_export_path) do %>
-				    <%= image_tag("icons/ladybug1_square.png", alt: "Reports", class: "media-object home-artwork") %>
+				    <%= image_tag("icons/butterfly1_square.png", alt: "Reports", class: "media-object home-artwork") %>
 				  <% end %>
 				</div>
 				<div class="media-body" style="padding-left: 10px;">
