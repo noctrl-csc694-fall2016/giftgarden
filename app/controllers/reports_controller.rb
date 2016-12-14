@@ -8,6 +8,9 @@ class ReportsController < ApplicationController
   #             Andy W, Nov 19 2016
   #----------------------------------#
 
+  #users must be logged into access any of this controller's methods/views
+  before_action :logged_in
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #  
   #Setup Gifts Report View
   #renders the basic gifts report view
@@ -130,9 +133,7 @@ class ReportsController < ApplicationController
     end
   end  
   
-  #users must be logged into access any of this controller's methods/views
-  before_action :logged_in
-  
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
   #Setup Activities Report View
   #renders the basic activities report view

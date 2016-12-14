@@ -7,7 +7,9 @@
       <h2>About Gift Garden
         <%= image_tag( random_artwork_icon, height: "64",  alt: "Garden artwork icon", class: "pull-right hidden-xs") %>
         <small> &nbsp; &mdash; 
-          Version 1.0-beta; deployed on <%= GiftGarden::Application::DEPLOY %>
+          <%= ApplicationHelper.gift_garden_version_detailed %>
+          ; deployed on 
+          <%= ApplicationHelper.gift_garden_deploy_date %>
         </small>
       </h2>
     </div>   <!-- page-header -->
