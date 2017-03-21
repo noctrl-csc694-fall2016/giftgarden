@@ -651,6 +651,7 @@ class ReportsController < ApplicationController
           @reportGiftsArray = @reportGiftsArray.first(100)
         end
         
+        
         #generate pdf file
         #landscape gifts report will be the full contact report
         if @fullcontact
