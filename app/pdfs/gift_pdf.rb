@@ -19,6 +19,7 @@ class GiftPdf < Prawn::Document
   # Source: https://www.sitepoint.com/pdf-generation-rails/
   # under the first section for prawn.
   
+  
   def header
     act = Activity.find([@activity]).first
     title = ''
@@ -33,6 +34,7 @@ class GiftPdf < Prawn::Document
     text title, size: 24, style: :bold, :align => :center
   end
   
+  
   def text_content
     y_position = cursor - 20
 
@@ -43,6 +45,7 @@ class GiftPdf < Prawn::Document
        "," + topn_explanation(@topn) +  "sorted by " + @sortby.to_s + ".", size: 15
     end
   end
+
 
   def table_content
     table gift_rows do
@@ -59,6 +62,7 @@ class GiftPdf < Prawn::Document
       style(column(5), align: :right)
     end
   end
+
 
   def gift_rows
     [['ID', 'Activity Name', 'Donor Name', 'Donor ID', 'Gift Date', 'Gift Amount']] +
@@ -83,10 +87,12 @@ class GiftPdf < Prawn::Document
     end
   end   
   
+  
   def total_row
     @giftTotal = format_currency(@giftTotal.to_s, true)
     [['', '', 'Total', '', '', @giftTotal]]
   end
+  
   
   #custom currency formatting method for reports
   #handles any monetary amounts under $1bn
@@ -111,6 +117,7 @@ class GiftPdf < Prawn::Document
       return ''
     end
   end
+  
   
     #timeframe 'more-English-like' conversion
   def timeframe_exalanation(range)
@@ -145,6 +152,7 @@ class GiftPdf < Prawn::Document
     end
     result
   end
+  
   
   #topn 'more-English-like' conversion
   def topn_explanation(range)
