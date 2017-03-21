@@ -527,9 +527,6 @@ class ReportsController < ApplicationController
   #renders the basic gifts report view
   def gifts_setup
     @activities = Activity.all.sort{|a,b| a.name.downcase <=> b.name.downcase }
-    #@activities = Activity.all
-    #@activities = Activity.all.sortby(:name)
-    #@activities = Activity.all.map { |activity| [ activity.name, activity.id ] }
   end
   
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #  
@@ -657,12 +654,12 @@ class ReportsController < ApplicationController
         #generate pdf file
         #landscape gifts report will be the full contact report
         if @fullcontact
-          pdf = GiftContactPdf.new(@reportGiftsArray, @timeframe, @sortby, @topn, @user)
+          pdf = GiftContactPdf.new(@activity, @reportGiftsArray, @timeframe, @sortby, @topn, @user)
           send_data pdf.render, :filename => 'Gifts Full Contact Report' + " "  + 
           Time.now.to_date.to_s + '.pdf', 
           :type => 'application/pdf', :disposition => 'attachment'
         else
-          pdf = GiftPdf.new(@reportGiftsArray, @timeframe, @sortby, @topn, @user, "Gifts")
+          pdf = GiftPdf.new(@activity, @reportGiftsArray, @timeframe, @sortby, @topn, @user, "Gifts")
           send_data pdf.render, :filename => 'Gifts Report' + " "  + 
           Time.now.to_date.to_s + '.pdf', 
           :type => 'application/pdf', :disposition => 'attachment'

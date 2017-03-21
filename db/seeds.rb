@@ -15,11 +15,11 @@
 # Ultimately, later, this will only happen in developement
 #
 
-#case Rails.env
+case Rails.env
 
 #commented out code in this file is for production seeds! un-comment and use at that time.
 
-#when "development" 
+when "development" 
   #creates many example activities, donors, gifts, and users
   #these are only used to development environment purposes
   #create sample activties
@@ -341,9 +341,9 @@
   end
 
 
-case Rails.env
+# case Rails.env
 
-when development
+# when development
 
   #create sample users; id of 1 is super admin (profbill)
   #permissions are 
@@ -389,21 +389,22 @@ when development
       username:         username,
       password_digest:  password_digest)
   end
+end ### 
 
-when "production"
-  #creates super admin and general activity
-  #these are ONLY created for the production environment
-  #create super admin user
-  User.create!( email:              "wtkrieger@noctrl.edu",
-                username:           "profbill",
-                password_digest:    User.digest('password'),
-                permission_level:   1)
+# when "production"
+#   #creates super admin and general activity
+#   #these are ONLY created for the production environment
+#   #create super admin user
+#   User.create!( email:              "wtkrieger@noctrl.edu",
+#                 username:           "profbill",
+#                 password_digest:    User.digest('password'),
+#                 permission_level:   1)
                 
-  #create general actvity
-  Activity.create!( name:           "General",
-                    activity_type:  "General",
-                    start_date:     "1999-12-31",
-                    end_date:       "2099-12-31",
-                    description:    "General Activity",
-                    goal:           "0")
-end
+#   #create general actvity
+#   Activity.create!( name:           "General",
+#                     activity_type:  "General",
+#                     start_date:     "1999-12-31",
+#                     end_date:       "2099-12-31",
+#                     description:    "General Activity",
+#                     goal:           "0")
+# end

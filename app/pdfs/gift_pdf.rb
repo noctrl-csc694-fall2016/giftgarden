@@ -1,6 +1,10 @@
+# 03/20/2017 patm
+# =>  Fixed bug where title didn't have activity in it.
+
 class GiftPdf < Prawn::Document
-  def initialize(gift, timeframe, sortby, topn, user, extra)
+  def initialize(activity, gift, timeframe, sortby, topn, user, extra)
     super()
+    @activity = activity
     @gifts = gift
     @timeframe = timeframe
     @sortby = sortby
@@ -16,10 +20,17 @@ class GiftPdf < Prawn::Document
   # under the first section for prawn.
   
   def header
+    act = Activity.find([@activity]).first
+    title = ''
+    if act.name.length > 20
+      title += 'Gifts: ' + act.name
+    else  
+      title += "Gifts Report: " + act.name
+    end
     image ReportsHelper.report_logo, 
     width: 40, height: 40
     move_up 30
-    text " Report", size: 24, style: :bold, :align => :center
+    text title, size: 24, style: :bold, :align => :center
   end
   
   def text_content
@@ -106,7 +117,7 @@ class GiftPdf < Prawn::Document
     result = ""
     case range
       when "All"
-        result += "All Gifts listed"
+        result += "All Gifts for this Activity"
       when "This Year"
         result += "This year's Gifts"
       when "This Quarter"
